@@ -12,7 +12,7 @@
 */
 
 // Включить/выключить FLS (Full Logging System) (в работе)
-window['FLS'] = true;
+window["FLS"] = true;
 
 // Подключение основного файла стилей
 import "../scss/style.scss";
@@ -64,8 +64,8 @@ flsFunctions.isWebp();
 
 /*
 Модуль параллакса мышью
-Документация: 
-Сниппет (HTML): 
+Документация:
+Сниппет (HTML):
 */
 // import './libs/parallax-mouse.js'
 
@@ -137,7 +137,7 @@ import * as flsForms from "./files/forms/forms.js";
 Изменение дизайна скроллбара
 Документация по работе в шаблоне: В HTML добавляем к блоку атрибут data-simplebar
 Документация плагина: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
-Сниппет(HTML): 
+Сниппет(HTML):
 */
 // import './files/scroll/simplebar.js';
 
@@ -170,7 +170,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 // Галерея ========================================================================================================================================================================================================================================================
 // ========================================================================================================================================================================================================================================================
 /*
-Документация по работе в шаблоне: 
+Документация по работе в шаблоне:
 Документация плагина: https://www.lightgalleryjs.com/docs/
 Сниппет(HTML):
 */
@@ -182,7 +182,7 @@ import * as flsScroll from "./files/scroll/scroll.js";
 
 /* Динамический адаптив */
 // Документация: https://template.fls.guru/template-docs/dinamicheskij-adaptiv.html
-// import "./libs/dynamic_adapt.js";
+import "./libs/dynamic_adapt.js";
 
 /* Форматирование чисел */
 // import './libs/wNumb.min.js';

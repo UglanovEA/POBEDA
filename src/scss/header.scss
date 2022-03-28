@@ -1,4 +1,9 @@
 .header {
+	display: flex;
+	flex-direction: column;
+	@media (max-width: rem(1035)) {
+		flex-direction: column-reverse;
+	}
 	// .header__container
 	&__container {
 	}
@@ -14,11 +19,14 @@
 .top-header {
 	min-width: rem(30);
 	background: #f7f7f7;
-	color: $colorText;
-	font-size: rem(14);
-	line-height: math.div(17, 14);
-	letter-spacing: -0.03em;
-	opacity: 0.6;
+	// line-height: 2;
+	@media (min-width: rem(1036)) {
+		color: $colorText;
+		font-size: rem(14);
+		line-height: math.div(17, 14);
+		letter-spacing: -0.03em;
+		opacity: 0.6;
+	}
 	// .top-header__container
 	&__container {
 		display: flex;
@@ -31,9 +39,12 @@
 	}
 	// .top-header__list
 	&__list {
-		display: flex;
-		gap: rem(30);
-		padding: rem(8) 0;
+		display: none;
+		@media (min-width: rem(1036)) {
+			display: flex;
+			gap: rem(30);
+			padding: rem(8) 0;
+		}
 	}
 	// .top-header__item
 	&__item {
@@ -50,20 +61,23 @@
 	}
 	// .top-header__location
 	&__location {
-		display: flex;
-		flex-direction: row-reverse;
-		gap: rem(10);
-		align-items: center;
-		padding: rem(8) 0;
-		transition: color 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $hoverRed;
+		display: none;
+		@media (min-width: rem(1036)) {
+			display: flex;
+			flex-direction: row-reverse;
+			gap: rem(10);
+			align-items: center;
+			padding: rem(8) 0;
+			transition: color 0.3s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $hoverRed;
+				}
 			}
-		}
-		&::before {
-			font-size: rem(10);
-			transform: translateY(15%);
+			&::before {
+				font-size: rem(10);
+				transform: translateY(15%);
+			}
 		}
 	}
 }
@@ -76,20 +90,21 @@
 	// .bottom-header__logo
 	&__logo {
 		&:not(:last-child) {
-			@include adaptiveValue("margin-right", 40, 15);
+			@include adaptiveValue("margin-right", 30, 15);
 		}
 	}
 	// .bottom-header__nav
 	&__nav {
 		&:not(:last-child) {
-			@include adaptiveValue("margin-right", 90, 20);
+			@include adaptiveValue("margin-right", 60, 20, 1390, 1000, 1);
 		}
 	}
 	// .bottom-header__list
 	&__list {
 		display: flex;
-		gap: rem(10);
+		gap: rem(20);
 		align-items: center;
+		padding: rem(10) 0;
 	}
 	// .bottom-header__item
 	&__item {
@@ -100,7 +115,6 @@
 		font-size: rem(18);
 		line-height: math.div(22, 18);
 		letter-spacing: -0.03em;
-		padding: rem(8);
 		transition: color 0.3s ease 0s;
 		@media (any-hover: hover) {
 			&:hover {
@@ -125,7 +139,7 @@
 			transform: rotate(-45deg);
 		}
 		&:not(:last-child) {
-			@include adaptiveValue("margin-right", 50, 20);
+			@include adaptiveValue("margin-right", 50, 10, 1390, 1000, 1);
 		}
 		@media (any-hover: hover) {
 			&:hover {
@@ -133,6 +147,9 @@
 				border: 1px solid #e5e5e5;
 				border-radius: rem(15);
 			}
+		}
+		@media (max-width: rem(1036)) {
+			padding: 0;
 		}
 	}
 	// .bottom-header__icons
@@ -144,10 +161,17 @@
 }
 .icons-header {
 	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
 	align-items: center;
 	gap: rem(12);
 	&:not(:last-child) {
-		@include adaptiveValue("margin-right", 38, 10);
+		margin-right: rem(38);
+	}
+	@media (max-width: $pc) {
+		&:not(:last-child) {
+			margin-right: rem(12);
+		}
 	}
 	// .icons-header__icon
 	&__icon {
@@ -165,21 +189,48 @@
 	// .bottom-header__phone
 	&__phone {
 		display: flex;
-		flex-direction: row-reverse;
 		align-items: center;
-		gap: rem(10);
-		letter-spacing: -0.03em;
-		border: 1px solid #e5e5e5;
-		border-radius: rem(15);
-		padding: rem(5) rem(18);
-		transition: all 0.3s ease 0s;
+		transition: color 0.3s ease 0s;
+		padding: rem(8);
 		&::before {
-			font-size: rem(14);
-			color: $hoverRed;
+			@extend %ic;
+			content: "\e90a";
+			font-size: rem(20);
+		}
+		& span {
+			display: none;
 		}
 		@media (any-hover: hover) {
 			&:hover {
-				background: #f7f7f7;
+				color: $hoverRed;
+			}
+		}
+		@media (min-width: $pc) {
+			flex-direction: row-reverse;
+			gap: rem(10);
+			letter-spacing: -0.03em;
+			border: 1px solid #e5e5e5;
+			border-radius: rem(15);
+			padding: rem(5) rem(18);
+			transition: all 0.3s ease 0s;
+			&::before {
+				content: "\e908";
+				display: block;
+				font-size: rem(14);
+				color: $hoverRed;
+			}
+			& span {
+				display: block;
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					background: #f7f7f7;
+				}
+			}
+		}
+		@media (max-width: rem(565)) {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-right", 30, 10);
 			}
 		}
 	}
@@ -188,10 +239,10 @@
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
 	display: none;
-	@media (max-width: $mobile) {
+	@media (max-width: rem(565)) {
 		display: block;
 		position: relative;
 		width: rem(30);
@@ -236,4 +287,3 @@
 		}
 	}
 }
-*/
