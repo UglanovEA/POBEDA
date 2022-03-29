@@ -1,29 +1,32 @@
 <header class="header">
 	<div class="header__top top-header">
 		<nav class="top-header__container top-header__nav">
-			<ul class="top-header__list">
-				<li class="top-header__item">
-					<a href="#!" class="top-header__link">Для жителей</a>
-				</li>
-				<li class="top-header__item">
-					<a href="#!" class="top-header__link">Документация</a>
-				</li>
-				<li class="top-header__item">
-					<a href="#!" class="top-header__link">Вакансии</a>
-				</li>
-			</ul>
-			<a href="#!" class="top-header__location _icon-vector">г. Краснодар</a>
+			<div class="top-header__body">
+				<ul data-da=".menu__body, 565, 1" class="top-header__list">
+					<li class="top-header__item">
+						<a href="#!" class="top-header__link">Для жителей</a>
+					</li>
+					<li class="top-header__item">
+						<a href="#!" class="top-header__link">Документация</a>
+					</li>
+					<li class="top-header__item">
+						<a href="#!" class="top-header__link">Вакансии</a>
+					</li>
+				</ul>
+				<a data-da=".menu__body, 565, 2" href="#!" class="top-header__location _icon-vector">г. Краснодар</a>
+				<button type="button" class="menu__icon icon-menu"><span></span></button>
+			</div>
 		</nav>
 	</div>
 	<div class="header__bottom">
 		<div class="bottom-header__container">
-			<a href="#!" class="bottom-header__logo">
+			<a data-da=".top-header__body, 1036, 1" href="#!" class="bottom-header__logo">
 				<img src="@img/icons/logo.svg" alt="Logo" />
 			</a>
-			<div class="header__menu menu">
+			<div class="bottom-header__menu menu">
 				<nav class="menu__body"></nav>
 			</div>
-			<nav data-da=".top-header__container, 1036, 1" class="bottom-header__nav">
+			<nav data-da=".menu__body, 565, 0" class="bottom-header__nav">
 				<ul class="bottom-header__list">
 					<li class="bottom-header__item">
 						<a href="#!" class="bottom-header__link">Объекты</a>
@@ -39,14 +42,13 @@
 					</li>
 				</ul>
 			</nav>
-			<a data-da=".top-header__container, 1036, 2" href="#!" class="bottom-header__issuance _icon-key">Выдача ключей</a>
-			<div class="bottom-header__icons icons-header">
+			<a data-da=".menu__body, 565, 3" href="#!" class="bottom-header__issuance _icon-key">Выдача ключей</a>
+			<div data-da=".top-header__body, 1036, 2" class="bottom-header__icons icons-header">
 				<a href="#!" class="icons-header__icon _icon-search"></a>
 				<a href="#!" class="icons-header__icon _icon-favorite"></a>
 				<a href="#!" class="icons-header__icon _icon-user"></a>
 			</div>
-			<a href="tel:88004443217" class="bottom-header__phone"><span>8 800 444-32-17</span> </a>
-			<button type="button" class="menu__icon icon-menu"><span></span></button>
+			<a data-da=".icons-header, 1036, 3" href="tel:88004443217" class="bottom-header__phone"><span>8 800 444-32-17</span> </a>
 		</div>
 	</div>
 </header>
