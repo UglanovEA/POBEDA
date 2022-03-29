@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('html/_head.htm',{
-	"title":"Главная"
-	})
+	@@include('html/_head.htm',{ "title":"Главная" })
 	<body>
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<div class="page-slider">
+					<div class="page-slider__container slider-page">
+						<!-- Оболочка слайдера -->
+						<div class="slider-page__slider swiper">
+							<!-- Двигающееся часть слайдера -->
+							<div class="slider-page__wrapper swiper-wrapper">
+								<!-- Слайд -->
+								<div class="slider-page__slide swiper-slide">
+									<h1 class="slider-page__title">
+										ЖК Дружный <br />
+										вторая очередь <span>старт продаж</span>
+									</h1>
+									<div class="slider-page__content">
+										<div class="slider-page__cost">
+											<div class="slider-page__info">от 4 млн. руб.</div>
+											<div class="slider-page__label">Стоимость</div>
+										</div>
+										<div class="slider-page__date">
+											<div class="slider-page__info _icon-question">1 кв. 2022</div>
+											<div class="slider-page__label">Ближайший срок сдачи</div>
+										</div>
+									</div>
+									<div class="slider-page__footer">
+										<a href="#!" class="slider-page__link _icon-arrow">Подробнее</a>
+										<button type="button" class="swiper-button-prev"></button>
+										<button type="button" class="swiper-button-next"></button>
+										<div class="swiper-pagination"></div>
+									</div>
+									<div class="slider-page__media">
+										<img src="@img/slider/druzhniy.png" alt="Druzhniy-2" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
-		@@include('html/_popup.htm',{})
-		@@include('html/_js.htm',{})
+		@@include('html/_popup.htm',{}) @@include('html/_js.htm',{})
 	</body>
 </html>

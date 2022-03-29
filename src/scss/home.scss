@@ -1,3 +1,127 @@
 //====================================================================================================
+.page-slider {
+	position: relative;
+}
+.slider-page {
+	// .slider-page__slider
+	&__slider {
+	}
+	// .slider-page__wrapper
+	&__wrapper {
+		padding-top: rem(28);
+	}
+	// .slider-page__slide
+	&__slide {
+		background: linear-gradient(180deg, #18568e 0%, #7fb1df 100%);
+		border-radius: rem(8);
+		padding: rem(50) rem(0) rem(50) rem(50);
+	}
+	// .slider-page__title
+	&__title {
+		font-weight: 700;
+		font-size: 40px;
+		line-height: math.div(48, 40);
+		letter-spacing: -0.03em;
+		color: $colorWhite;
+		& span {
+			display: inline-block;
+			background: #73c949;
+			border-radius: rem(16);
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: math.div(19, 16);
+			text-align: center;
+			letter-spacing: -0.03em;
+			padding: rem(5) rem(15);
+			margin-left: rem(10);
+			transform: translateY(-15%);
+		}
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 58, 20);
+		}
+	}
+	// .slider-page__content
+	&__content {
+		display: flex;
+		gap: rem(40);
+		&:not(:last-child) {
+			margin-bottom: rem(42);
+		}
+	}
+	// .slider-page__cost
+	&__cost {
+	}
+	// .slider-page__info
+	&__info {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: flex-end;
+		gap: rem(12);
+		font-weight: 600;
+		font-size: rem(18);
+		line-height: math.div(22, 18);
+		letter-spacing: -0.03em;
+		color: $colorWhite;
+		&:not(:last-child) {
+			margin-bottom: rem(6);
+		}
+	}
+	// .slider-page__label
+	&__label {
+		letter-spacing: -0.03em;
+		color: $colorWhite;
+	}
+	// .slider-page__date
+	&__date {
+	}
+	// .slider-page__footer
+	&__footer {
+	}
+	// .slider-page__link
+	&__link {
+		display: inline-flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: flex-end;
+		gap: rem(43);
+		font-weight: 600;
+		font-size: rem(18);
+		line-height: math.div(22, 18);
+		letter-spacing: -0.03em;
+		color: $colorWhite;
+		border: rem(3) solid #ffffff;
+		border-radius: rem(4);
+		padding: rem(16) rem(23);
+		&::before {
+			font-size: rem(10);
+		}
+	}
+	// .slider-page__media
+	&__media {
+		width: 60%;
+		position: absolute;
+		right: 0;
+		top: -1%;
+		z-index: 5;
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+}
+.swiper-pagination {
+}
 
 //====================================================================================================
