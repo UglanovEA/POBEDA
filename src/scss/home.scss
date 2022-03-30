@@ -4,54 +4,82 @@
 .slider-page {
 	// .slider-page__slider
 	&__slider {
+		position: relative;
 	}
 	// .slider-page__wrapper
 	&__wrapper {
-		padding-top: rem(28);
+		padding-top: rem(35);
 	}
 	// .slider-page__slide
 	&__slide {
 		background: linear-gradient(180deg, #18568e 0%, #7fb1df 100%);
 		border-radius: rem(8);
-		padding: rem(50) rem(0) rem(50) rem(50);
+		border: rem(1) solid #e5e5e5;
+		@include adaptiveValue("padding-top", 50, 28);
+		@include adaptiveValue("padding-bottom", 50, 25, 1390, 991.98, 1);
+		@include adaptiveValue("padding-left", 50, 34);
+		@media (max-width: $tablet) {
+			padding-bottom: 0;
+		}
+	}
+	// .slider-page__navigation
+	&__navigation {
+		position: absolute;
+		bottom: rem(75);
+		@include adaptiveValue("left", 400, 250);
+		display: flex;
+		align-items: center;
+		gap: rem(191);
+	}
+	// .slider-page__arrows
+	&__arrows {
+		display: flex;
+		gap: rem(57);
+		align-items: center;
 	}
 	// .slider-page__body
 	&__body {
-		position: relative;
+		max-height: rem(674);
+		display: flex;
+		flex-direction: column;
+		@media (min-width: $tablet) {
+			position: relative;
+		}
 	}
 	// .slider-page__content
 	&__content {
+		@include adaptiveValue("min-height", 310, 150);
+		display: flex;
+		flex-direction: column;
 	}
 	// .slider-page__title
 	&__title {
+		flex: 1 1 auto;
 		font-weight: 700;
-		font-size: 40px;
+		color: $colorWhite;
+		@include adaptiveValue("font-size", 40, 24);
 		line-height: math.div(48, 40);
 		letter-spacing: -0.03em;
-		color: $colorWhite;
 		& span {
 			display: inline-block;
 			background: #73c949;
 			border-radius: rem(16);
 			font-weight: 500;
-			font-size: rem(16);
+			@include adaptiveValue("font-size", 16, 10);
 			line-height: math.div(19, 16);
 			text-align: center;
 			letter-spacing: -0.03em;
 			padding: rem(5) rem(15);
-			margin-left: rem(10);
+			@include adaptiveValue("margin-left", 10, 5);
 			transform: translateY(-25%);
-		}
-		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 58, 20);
 		}
 	}
 	// .slider-page__content
 	&__section {
 		display: flex;
-		gap: rem(40);
+		@include adaptiveValue("gap", 60, 24);
 		&:not(:last-child) {
-			margin-bottom: rem(42);
+			@include adaptiveValue("margin-bottom", 42, 22);
 		}
 	}
 	// .slider-page__cost
@@ -65,16 +93,17 @@
 		justify-content: flex-end;
 		gap: rem(12);
 		font-weight: 600;
-		font-size: rem(18);
+		@include adaptiveValue("font-size", 18, 16);
 		line-height: math.div(22, 18);
 		letter-spacing: -0.03em;
 		color: $colorWhite;
 		&:not(:last-child) {
-			margin-bottom: rem(6);
+			@include adaptiveValue("margin-bottom", 6, 3);
 		}
 	}
 	// .slider-page__label
 	&__label {
+		@include adaptiveValue("font-size", 16, 14);
 		letter-spacing: -0.03em;
 		color: $colorWhite;
 	}
@@ -92,27 +121,32 @@
 		justify-content: flex-end;
 		gap: rem(43);
 		font-weight: 600;
-		font-size: rem(18);
+		@include adaptiveValue("font-size", 18, 16);
 		line-height: math.div(22, 18);
 		letter-spacing: -0.03em;
 		color: $colorWhite;
 		border: rem(3) solid #ffffff;
 		border-radius: rem(4);
-		padding: rem(16) rem(23);
+		@include adaptiveValue("padding-top", 16, 10);
+		@include adaptiveValue("padding-bottom", 16, 10);
+		@include adaptiveValue("padding-left", 23, 15);
+		@include adaptiveValue("padding-right", 23, 15);
 		&::before {
 			font-size: rem(10);
 		}
 	}
 	// .slider-page__img
 	&__img {
-		width: 60%;
-		position: absolute;
-		right: 0;
-		top: -30%;
 		& img {
 			max-width: 100%;
 			height: 100%;
 			object-fit: cover;
+		}
+		@media (min-width: $tablet) {
+			width: percent(809, 1390);
+			position: absolute;
+			right: 0;
+			top: -30%;
 		}
 	}
 }
@@ -122,11 +156,45 @@
 }
 .swiper-slide {
 }
-.swiper-button-prev {
-}
+.swiper-button-prev,
 .swiper-button-next {
+	color: $colorWhite;
+	&::before {
+		font-size: rem(10);
+	}
+}
+.swiper-button-prev {
+	transform: rotate(-180deg);
 }
 .swiper-pagination {
+	display: flex;
+	gap: rem(8);
+}
+.swiper-pagination-bullet {
+	position: relative;
+	width: rem(8);
+	height: rem(8);
+	background-color: $colorWhite;
+	cursor: pointer;
+	border-radius: rem(50);
+	transition: all 0.3s ease 0s;
+	&::before {
+		width: 0;
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		border-radius: rem(50);
+		background: $hoverRed;
+	}
+}
+.swiper-pagination-bullet-active {
+	width: rem(24);
+	&::before {
+		transition: width 3s linear 0s;
+		width: 100%;
+	}
 }
 
 //====================================================================================================
