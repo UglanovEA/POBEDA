@@ -48,14 +48,13 @@ function initSliders() {
 			//lazy: true,
 
 			// Эффекты
-			effect: "fade",
+			// effect: "fade",
 			// autoplay: {
 			// 	delay: 3000,
 			// 	disableOnInteraction: false,
 			// },
 
 			// Пагинация
-
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
