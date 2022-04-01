@@ -15,7 +15,7 @@
 	// .slider-page__navigation
 	&__navigation {
 		position: absolute;
-		@include adaptiveValue("bottom", 75, 55);
+		bottom: rem(55);
 		@include adaptiveValue("left", 400, 250);
 		display: flex;
 		align-items: center;
@@ -30,9 +30,8 @@
 	&__arrows {
 		display: none;
 		@media (min-width: $pc) {
-			display: flex;
+			display: inline-flex;
 			gap: rem(57);
-			align-items: center;
 		}
 	}
 	// .slider-page__pagination
@@ -70,18 +69,20 @@
 	// .slider-slide__content
 	&__content {
 		max-width: rem(470);
+		max-height: rem(305);
 		display: flex;
 		flex: 1 1 auto;
 		flex-direction: column;
 	}
 	// .slider-slide__title
 	&__title {
+		flex: 1 1 auto;
 		font-weight: 700;
 		color: $colorWhite;
 		@include adaptiveValue("font-size", 40, 24, 768, 320, 1);
 		line-height: math.div(48, 40);
 		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 57, 15);
+			margin-bottom: rem(15);
 		}
 		& span {
 			display: inline-block;
@@ -115,9 +116,7 @@
 	// .slider-slide__info
 	&__info {
 		display: flex;
-		flex-direction: row-reverse;
 		align-items: center;
-		justify-content: flex-end;
 		gap: rem(12);
 		font-weight: 600;
 		@include adaptiveValue("font-size", 18, 16, 768, 320, 1);
@@ -154,6 +153,7 @@
 		@include adaptiveValue("padding-bottom", 16, 10, 768, 320, 1);
 		@include adaptiveValue("padding-left", 23, 15, 768, 320, 1);
 		@include adaptiveValue("padding-right", 23, 15, 768, 320, 1);
+		transition: all 0.3s ease 0s;
 		&::before {
 			font-size: rem(10);
 			transform: translateY(20%);
@@ -190,13 +190,18 @@
 /* Swiper class */
 .swiper-button-prev,
 .swiper-button-next {
-	color: $colorWhite;
-	&::before {
-		font-size: rem(10);
-	}
+	display: inline-flex;
+	padding: rem(15);
 }
-.swiper-button-prev {
-	transform: rotate(-180deg);
+.swiper-button-next span {
+	border-style: solid;
+	border-width: 6px 0px 6px 7px;
+	border-color: transparent transparent transparent $colorWhite;
+}
+.swiper-button-prev span {
+	border-style: solid;
+	border-width: 6px 7px 6px 0;
+	border-color: transparent $colorWhite transparent transparent;
 }
 .swiper-pagination-bullet {
 	position: relative;
