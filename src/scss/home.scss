@@ -1,6 +1,9 @@
 .page-slider {
 }
+.page-advantages {
+}
 /*==================== PAGE-SLIDER ====================*/
+
 .slider-page {
 	// .slider-page__slider
 	&__slider {
@@ -230,4 +233,66 @@
 		width: 100%;
 	}
 }
-/*==================== / PAGE-SLIDER ====================*/
+
+/*==================== PAGE-ADVANTAGES ====================*/
+
+.advantages-page {
+	@include adaptiveValue("padding-top", 40, 20);
+	@include adaptiveValue("padding-bottom", 40, 20);
+	// .advantages-page__container
+	&__container {
+	}
+	// .advantages-page__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(rem(290), 1fr));
+		@include adaptiveValue("gap", 40, 10);
+	}
+}
+.item-advantage {
+	// .item-advantage__item
+	&__item {
+		border: rem(1) solid $colorGrey;
+		border-radius: rem(8);
+		@include adaptiveValue("padding", 19, 15);
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				border-color: $hoverRed;
+				.item-advantage__text {
+					color: $hoverRed;
+				}
+			}
+		}
+	}
+	// .item-advantage__content
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 30, 14);
+		}
+	}
+	// .item-advantage__title
+	&__title {
+		font-weight: 600;
+		@include adaptiveValue("font-size", 20, 16);
+		line-height: math.div(24, 20);
+	}
+	// .item-advantage__icon
+	&__icon {
+		width: 30px;
+		height: 30px;
+		background: $hoverRed;
+		color: $colorWhite;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	// .item-advantage__text
+	&__text {
+		color: $colorText;
+	}
+}
