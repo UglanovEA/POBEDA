@@ -2,6 +2,8 @@
 }
 .page-advantages {
 }
+.page-filters {
+}
 /*==================== PAGE-SLIDER ====================*/
 
 .slider-page {
@@ -295,4 +297,89 @@
 	&__text {
 		color: $colorText;
 	}
+}
+
+/*==================== PAGE-FILTERS ====================*/
+
+.filters-page {
+	@include adaptiveValue("padding-top", 40, 20);
+	@include adaptiveValue("padding-bottom", 40, 20);
+	// .filters-page__container
+	&__container {
+		display: flex;
+		gap: rem(40);
+	}
+	// .filters-page__checkboxes
+	&__checkboxes {
+	}
+	// .filters-page__ranges
+	&__ranges {
+		display: flex;
+	}
+	// .filters-page__select
+	&__select {
+	}
+	// .filters-page__btn
+	&__btn {
+	}
+}
+.checkbox-filter {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(12);
+	// .checkbox-filter__title
+	&__title {
+	}
+}
+.checkbox {
+	// .checkbox__input
+	&__input {
+	}
+	// .checkbox__label
+	&__label {
+	}
+	// .checkbox__text
+	&__text {
+	}
+}
+.range-filter {
+	display: flex;
+	gap: rem(40);
+	// .range-filter__item
+	&__item {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(12);
+	}
+	// .range-filter__title
+	&__title {
+	}
+	// .range-filter__inputs
+	&__inputs {
+		display: flex;
+		border-radius: 4px;
+	}
+	// .range-filter__input
+	&__input {
+		max-width: rem(92.5);
+		background: #f0f0f0;
+		color: $mainColor;
+		font-weight: 600;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: math.div(22, 18);
+		padding: rem(20);
+	}
+	// .range-filter__range
+	&__range {
+	}
+}
+.select-filter {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(12);
+	// .select-filter__title
+	&__title {
+	}
+}
+.form {
 }

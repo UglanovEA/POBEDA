@@ -8,29 +8,34 @@
 	}
 	// .select__title
 	&__title {
-		color: inherit;
-		text-align: left;
-		border: 1px solid #d9d9d9;
-		background-color: #fff;
-		cursor: pointer;
 		width: 100%;
+		background-color: #f0f0f0;
+		color: $mainColor;
+		text-align: left;
+		cursor: pointer;
 		border-radius: 4px;
 	}
 	// .select__value
 	&__value {
 		display: flex;
+		flex-direction: row-reverse;
 		align-items: center;
-		height: rem(30);
-		padding: 0 rem(15);
-		gap: rem(10);
+		height: rem(60);
+		min-width: rem(185);
+		padding: rem(20);
+		font-weight: 600;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: math.div(22, 18);
 		> * {
 			flex: 1 1 auto;
 		}
-		&:after {
-			content: "";
+		&:before {
+			@extend %ic;
+			content: "\e905";
 			align-self: stretch;
 			flex: 0 0 10px;
 			transition: all 0.3s ease 0s;
+			font-size: rem(11);
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -51,20 +56,19 @@
 	}
 	&__input {
 		width: 100%;
-		background-color: transparent;
 		height: 100%;
+		background-color: transparent;
 	}
 	// .select__options
 	&__options {
-		color: #000;
-		position: absolute;
-		top: 29px;
-		border-radius: 0 0 4px 4px;
 		min-width: 100%;
+		position: absolute;
+		top: 60px;
 		left: 0;
-		background-color: #fff;
+		color: $mainColor;
+		border-radius: 0 0 4px 4px;
+		background-color: #f0f0f0;
 		border-top: 0;
-		border: 1px solid #d9d9d9;
 		border-top: 0;
 		padding: 10px 0px 5px 0px;
 	}
@@ -87,8 +91,11 @@
 		display: block;
 		text-align: left;
 		cursor: pointer;
-		padding: 5px 15px;
+		padding: 5px 20px;
 		color: inherit;
+		font-weight: 600;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: math.div(22, 18);
 		&._select-selected {
 			background-color: #eee;
 		}
@@ -98,7 +105,6 @@
 			}
 		}
 	}
-
 	// Конструкция дополнительных данных
 	&__row {
 		display: inline-flex;
@@ -108,7 +114,6 @@
 	}
 	&__text {
 	}
-
 	// Состояния селекта
 	&._select-open {
 		z-index: 5;
@@ -124,7 +129,6 @@
 	&._select-checkbox {
 	}
 }
-
 // Тег
 ._select-tag {
 	cursor: pointer;

@@ -1,4 +1,5 @@
 .checkbox {
+	display: flex;
 	position: relative;
 	&:not(:last-child) {
 		margin-bottom: em(5);

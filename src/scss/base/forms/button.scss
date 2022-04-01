@@ -2,11 +2,29 @@
 // Снипет (HTML): btn
 
 .button {
-	display: inline-flex;
-	padding: 0px 0px;
+	min-height: rem(60);
+	min-width: rem(185);
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: rem(50);
+	padding-right: rem(50);
+	@include adaptiveValue("padding-top", 15, 11);
+	@include adaptiveValue("padding-bottom", 15, 11);
+	font-weight: 600;
+	@include adaptiveValue("font-size", 18, 16);
+	line-height: math.div(22, 18);
+	text-align: center;
+	color: $colorWhite;
+	background: $hoverRed;
+	border-radius: 4px;
 	@media (any-hover: hover) {
 		&:hover {
 		}
+	}
+	@media (max-width: $mobile) {
+		flex: 1 1 100%;
 	}
 	&._fw {
 		width: 100%;

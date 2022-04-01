@@ -152,6 +152,50 @@
 						</div>
 					</div>
 				</section>
+				<!--==================== PAGE-FILTERS ====================-->
+				<div class="page-filters filters-page">
+					<div class="filters-page__container">
+						<div class="filters-page__checkboxes checkbox-filter">
+							<h4 class="checkbox-filter__title title-filters">Количество комнат</h4>
+							<div class="checkbox">
+								<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+								<label for="c_1" class="checkbox__label"><span class="checkbox__text">Студия</span></label>
+							</div>
+							<div class="checkbox">
+								<input id="c_1" data-error="Ошибка" class="checkbox__input" type="checkbox" value="1" name="form[]" />
+								<label for="c_1" class="checkbox__label"><span class="checkbox__text">1</span></label>
+							</div>
+						</div>
+						<div class="filters-page__ranges range-filter">
+							<div data-range-price class="range-filter__item">
+								<h4 class="range-filter__title title-filters">Стоимость, млн. руб.</h4>
+								<div class="range-filter__inputs">
+									<input data-range-from="1" autocomplete="off" type="text" value="3.5" name="form[]" class="range-filter__input" />
+									<input data-range-to="25" autocomplete="off" type="text" value="19.5" name="form[]" class="range-filter__input" />
+								</div>
+								<div data-range-item class="range-filter__range"></div>
+							</div>
+							<div data-range-area class="range-filter__item">
+								<h4 class="range-filter__title title-filters">Площадь, м2</h4>
+								<div class="range-filter__inputs">
+									<input data-range-from="25" autocomplete="off" type="text" value="25" name="form[]" class="range-filter__input" />
+									<input data-range-to="300" autocomplete="off" type="text" value="190" name="form[]" class="range-filter__input" />
+								</div>
+								<div data-range-item class="range-filter__range"></div>
+							</div>
+						</div>
+						<div class="filters-page__select select-filter">
+							<h3 class="select-filter__title title-filters">Готовность, до</h3>
+							<select name="form[]" class="form">
+								<option value="1" selected>1 кв 2023</option>
+								<option value="2">2 кв 2024</option>
+								<option value="3">3 кв 2025</option>
+								<option value="4">4 кв 2025</option>
+							</select>
+						</div>
+						<button type="submit" class="filters-page__btn button">Показать</button>
+					</div>
+				</div>
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>

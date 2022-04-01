@@ -1,42 +1,85 @@
 // Подключение из node_modules
-import * as noUiSlider from 'nouislider';
+import * as noUiSlider from "nouislider";
 
-// Подключение стилей из scss/base/forms/range.scss 
+// Подключение стилей из scss/base/forms/range.scss
 // в файле scss/forms/forms.scss
 
 // Подключение cтилей из node_modules
 // import 'nouislider/dist/nouislider.css';
 
 export function rangeInit() {
-	const priceSlider = document.querySelector('#range');
-	if (priceSlider) {
-		let textFrom = priceSlider.getAttribute('data-from');
-		let textTo = priceSlider.getAttribute('data-to');
-		noUiSlider.create(priceSlider, {
-			start: 0, // [0,200000]
-			connect: [true, false],
-			range: {
-				'min': [0],
-				'max': [200000]
-			}
+	const rangePrices = document.querySelectorAll("[data-range-price]");
+	const rangeArea = document.querySelectorAll("[data-range-area]");
+	if (rangePrices.length) {
+		rangePrices.forEach((rangeItem) => {
+			const fromValue = rangeItem.querySelector("[data-range-from]");
+			const toValue = rangeItem.querySelector("[data-range-to]");
+			const item = rangeItem.querySelector("[data-range-item]");
+			var inputs = [fromValue, toValue];
+			noUiSlider.create(item, {
+				start: [Number(fromValue.value), Number(toValue.value)], // [0,200000]
+				connect: true,
+				step: 0.1,
+				// tooltips: [true, true], // Подсказки
+				range: {
+					min: Number(fromValue.dataset.rangeFrom),
+					max: Number(toValue.dataset.rangeTo),
+				},
+				format: {
+					to: function (value) {
+						return parseFloat(value).toFixed(1);
+					},
+					from: function (value) {
+						return parseFloat(value).toFixed(1);
+					},
+				},
+			});
+			item.noUiSlider.on("update", function (values, handle) {
+				fromValue.value = parseFloat(values[0]);
+				toValue.value = parseFloat(values[1]);
+			});
+			inputs.forEach(function (input, handle) {
+				input.addEventListener("change", function () {
+					item.noUiSlider.setHandle(handle, this.value);
+				});
+			});
 		});
-		/*
-		const priceStart = document.getElementById('price-start');
-		const priceEnd = document.getElementById('price-end');
-		priceStart.addEventListener('change', setPriceValues);
-		priceEnd.addEventListener('change', setPriceValues);
-		*/
-		function setPriceValues() {
-			let priceStartValue;
-			let priceEndValue;
-			if (priceStart.value != '') {
-				priceStartValue = priceStart.value;
-			}
-			if (priceEnd.value != '') {
-				priceEndValue = priceEnd.value;
-			}
-			priceSlider.noUiSlider.set([priceStartValue, priceEndValue]);
-		}
+	}
+	if (rangeArea.length) {
+		rangeArea.forEach((rangeItem) => {
+			const fromValue = rangeItem.querySelector("[data-range-from]");
+			const toValue = rangeItem.querySelector("[data-range-to]");
+			const item = rangeItem.querySelector("[data-range-item]");
+			var inputs = [fromValue, toValue];
+			noUiSlider.create(item, {
+				start: [Number(fromValue.value), Number(toValue.value)], // [0,200000]
+				connect: true,
+				step: 1,
+				// tooltips: [true, true], // Подсказки
+				range: {
+					min: Number(fromValue.dataset.rangeFrom),
+					max: Number(toValue.dataset.rangeTo),
+				},
+				format: {
+					to: function (value) {
+						return parseInt(value);
+					},
+					from: function (value) {
+						return parseInt(value);
+					},
+				},
+			});
+			item.noUiSlider.on("update", function (values, handle) {
+				fromValue.value = parseInt(values[0]);
+				toValue.value = parseInt(values[1]);
+			});
+
+			inputs.forEach(function (input, handle) {
+				input.addEventListener("change", function () {
+					item.noUiSlider.setHandle(handle, this.value);
+				});
+			});
+		});
 	}
 }
 rangeInit();
