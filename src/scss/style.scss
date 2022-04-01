@@ -20,6 +20,7 @@ $fontSize: rem(16); // где 16(px) - размер шрифта по умолч
 // Основные цвета
 $mainColor: #000000; // Цвет шрифта по умолчанию
 $colorWhite: #ffffff;
+$colorGrey: #e5e5e5;
 $colorText: #555555;
 $hoverRed: #ee3a37;
 
@@ -54,6 +55,7 @@ $responsiveType: 1;
 body {
 	font-weight: 500;
 	line-height: math.div(19, 16);
+	letter-spacing: -0.03em;
 	// Скролл заблокирован
 	.lock & {
 		overflow: hidden;
